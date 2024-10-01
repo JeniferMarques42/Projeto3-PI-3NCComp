@@ -36,7 +36,10 @@ public class InformacoesActivity extends AppCompatActivity {
 
     public void RealizarProva(View view){
             // Ir para Actitvy Prova
+
             Intent intent = new Intent(this, ProvaActivity.class);
             startActivity(intent);
+
+
     }
 }

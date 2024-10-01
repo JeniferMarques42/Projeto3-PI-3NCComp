@@ -41,148 +41,162 @@
     <!--marcar checked-->
 
     <TextView
-        android:id="@+id/textPergunta"
+        android:id="@+id/textIdProva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id pergunta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <TextView
+        android:id="@+id/textQuestao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="1) loremloremipsumloremipsumloremipsum"
+        android:text="1 - loremloremipsumloremipsumloremipsum"
         android:textAlignment="center"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.154" />
-
-    <CheckedTextView
-        android:id="@+id/alternativacheckA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="A)"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <TextView
         android:id="@+id/textRespA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="loremipsumloremipsum"
+        android:text="A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284" />
+        app:layout_constraintVertical_bias="0.217" />
 
-    <CheckedTextView
-        android:id="@+id/alternativacheckB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="B)"
-        android:textSize="20sp"
+    <RadioButton
+        android:id="@+id/radioTextRespA"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="loremloremipsumloremipsumloremipsum loremloremipsumloremipsumloremipsum"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintEnd_toEndOf="@+id/textNumTime"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.348"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/textRespB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="loremipsumloremipsum"
+        android:text="B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.229"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.355" />
+        app:layout_constraintVertical_bias="0.217" />
 
-    <CheckedTextView
-        android:id="@+id/alternativacheckC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="C)"
-        android:textSize="20sp"
+    <RadioButton
+        android:id="@+id/radioTextRespB"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="loremloremipsumloremipsumloremipsum loremloremipsumloremipsumloremipsum"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintEnd_toEndOf="@+id/textNumTime"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.327" />
 
     <TextView
         android:id="@+id/textRespC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="loremipsumloremipsum"
+        android:text="C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426" />
+        app:layout_constraintVertical_bias="0.216" />
 
-    <CheckedTextView
-        android:id="@+id/alternativacheckD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="D)"
-        android:textSize="20sp"
+    <RadioButton
+        android:id="@+id/radioTextRespC"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="loremloremipsumloremipsumloremipsum loremloremipsumloremipsumloremipsum"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintEnd_toEndOf="@+id/textNumTime"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.496"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.403" />
 
     <TextView
         android:id="@+id/textRespD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="loremipsumloremipsum"
+        android:text="D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.731"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintVertical_bias="0.216" />
 
-    <CheckedTextView
-        android:id="@+id/alternativacheckE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="E)"
-        android:textSize="20sp"
+    <RadioButton
+        android:id="@+id/radioTextRespD"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="loremloremipsumloremipsumloremipsum loremloremipsumloremipsumloremipsum"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintEnd_toEndOf="@+id/textNumTime"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.567" />
+        app:layout_constraintVertical_bias="0.476" />
 
     <TextView
         android:id="@+id/textRespE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="loremipsumloremipsum"
+        android:text="E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.958"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
+        app:layout_constraintVertical_bias="0.217" />
+
+    <RadioButton
+        android:id="@+id/radioTextRespE"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="loremloremipsumloremipsumloremipsum loremloremipsumloremipsumloremipsum"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textNumTime"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
 
     <Button
         android:id="@+id/btnProxima"
@@ -190,26 +204,73 @@
         android:layout_height="wrap_content"
         android:onClick="Proxima"
         android:text="Próxima"
-        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669" />
+        app:layout_constraintVertical_bias="0.667" />
 
     <Button
         android:id="@+id/btnVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Voltar"
-        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.668" />
+
+    <Button
+        android:id="@+id/btnCriarPergunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="CadastrarPergunta"
+        android:text="Cadastrar Pergunta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669" />
+        app:layout_constraintVertical_bias="0.788" />
+
+    <Button
+        android:id="@+id/btnEditarPergunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Pergunta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.881" />
+
+    <Button
+        android:id="@+id/btnExcluirPergunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Excluir Pergunta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958" />
+
+    <TextView
+        android:id="@+id/RespCorreta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resposta Correta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.606" />
 
     <!--text resposta da pergunta-->
     <!--marcar checked-->
