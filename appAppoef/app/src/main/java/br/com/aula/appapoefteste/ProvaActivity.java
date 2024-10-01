@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public class ProvaActivity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
-
+    private static final String URL_BUSCAR_DADOS = "https://z8vpqp-3000.csb.app/perguntasCadastradas";
     TextView campoIdProva,campoQuestao, campoIdRespA, campoIdRespB, campoIdRespC, campoIdRespD, campoIdRespE, camppoRespCorreta;
     RadioButton campoTextRespA, campoTextRespB, campoTextRespC, campoTextRespD, campoTextRespE;
 
@@ -45,6 +45,7 @@ public class ProvaActivity extends AppCompatActivity {
 
         // Requisição de rede
         requestQueue = Volley.newRequestQueue(this);
+
 
         // Instanciando objetos
         campoIdProva = findViewById(R.id.textIdProva);
@@ -58,7 +59,7 @@ public class ProvaActivity extends AppCompatActivity {
         campoIdRespD = findViewById(R.id.textRespD);
         campoTextRespD = findViewById(R.id.radioTextRespD);
         campoIdRespE = findViewById(R.id.textRespE);
-        campoTextRespD = findViewById(R.id.radioTextRespE);
+        campoTextRespE = findViewById(R.id.radioTextRespE);
         camppoRespCorreta = findViewById(R.id.RespCorreta);
 
         //chamar método
@@ -72,24 +73,19 @@ public class ProvaActivity extends AppCompatActivity {
     }
 
     public void buscarDados(){
-        // Chama url servidor para retornar os dados
-        String url = "https://z8vpqp-3000.csb.app/perguntasCadastradas";
-
         //Buscar dados do servidor
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
-                url,
+                URL_BUSCAR_DADOS,
                 null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
                         // Dados recebidos
                         ArrayList<String> dados = new ArrayList<>();
-                        Log.d("Resposta", response.toString());
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject obj = response.getJSONObject(i);
-
                                 // Pegar dados
                                 String idProva = obj.getString("idProva");
                                 String Questao = obj.getString("Questao");
@@ -105,25 +101,21 @@ public class ProvaActivity extends AppCompatActivity {
                                 String textRespE = obj.getString("textRespE");
                                 String RespCorreta = obj.getString("RespCorreta");
 
-                                if (!isFinishing()) {
-                                    // Exibis dados
-                                    campoIdProva.setText(idProva);
-                                    campoQuestao.setText(Questao);
-                                    campoIdRespA.setText(idRespA);
-                                    campoTextRespA.setText(textRespA);
-                                    campoIdRespB.setText(idRespB);
-                                    campoTextRespB.setText(textRespB);
-                                    campoIdRespC.setText(idRespC);
-                                    campoTextRespC.setText(textRespC);
-                                    campoIdRespD.setText(idRespD);
-                                    campoTextRespD.setText(textRespD);
-                                    campoIdRespE.setText(idRespE);
-                                    campoTextRespE.setText(textRespE);
-                                    camppoRespCorreta.setText(RespCorreta);
-                                }
+                                // Exibis dados
+                                campoIdProva.setText(idProva);
+                                campoQuestao.setText(Questao);
+                                campoIdRespA.setText(idRespA);
+                                campoTextRespA.setText(textRespA);
+                                campoIdRespB.setText(idRespB);
+                                campoTextRespB.setText(textRespB);
+                                campoIdRespC.setText(idRespC);
+                                campoTextRespC.setText(textRespC);
+                                campoIdRespD.setText(idRespD);
+                                campoTextRespD.setText(textRespD);
+                                campoIdRespE.setText(idRespE);
+                                campoTextRespE.setText(textRespE);
+                                camppoRespCorreta.setText(RespCorreta);
                             }
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(ProvaActivity.this, "Erro ao processar o JSON", Toast.LENGTH_SHORT).show();
@@ -139,21 +131,12 @@ public class ProvaActivity extends AppCompatActivity {
                     }
                 }
         );
-        // Configurando o RetryPolicy (tempo de espera e número de tentativas)
-        int timeoutMs = 20000; // 10 segundos
-        RetryPolicy policy = new DefaultRetryPolicy(
-                timeoutMs,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,  // Número de tentativas padrão
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT  // Fator de backoff padrão
-        );
-        jsonArrayRequest.setRetryPolicy(policy);
-
         // Requisição à fila
         requestQueue.add(jsonArrayRequest);
     }
 
     public void CadastrarPergunta(View view){
-        String url = "https://z8vpqp-3000.csb.app/criarPerguntas";
+
         // Extratindo inorações
 
     }
