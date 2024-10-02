@@ -1,8 +1,9 @@
-package com.example.appappoef;
+package br.com.aula.appapoefteste;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,8 +32,9 @@ public class ProvaActivity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
     private static final String URL_BUSCAR_DADOS = "https://z8vpqp-3000.csb.app/perguntasCadastradas";
-    TextView campoIdProva,campoQuestao, campoIdRespA, campoIdRespB, campoIdRespC, campoIdRespD, campoIdRespE, camppoRespCorreta;
-    RadioButton campoTextRespA, campoTextRespB, campoTextRespC, campoTextRespD, campoTextRespE;
+    private TextView campoIdProva,campoQuestao, campoIdRespA, campoIdRespB, campoIdRespC, campoIdRespD, campoIdRespE, camppoRespCorreta;
+    private RadioButton campoTextRespA, campoTextRespB, campoTextRespC, campoTextRespD, campoTextRespE;
+    private Button btnVoltar, btnCadastrarPergunta, btnProxima, btnEditarPergunta, btnExclirPergunta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,6 @@ public class ProvaActivity extends AppCompatActivity {
 
         // Requisição de rede
         requestQueue = Volley.newRequestQueue(this);
-
 
         // Instanciando objetos
         campoIdProva = findViewById(R.id.textIdProva);
@@ -61,6 +62,8 @@ public class ProvaActivity extends AppCompatActivity {
 
         //chamar método
         buscarDados();
+        //ocultarObj();
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -68,73 +71,98 @@ public class ProvaActivity extends AppCompatActivity {
             return insets;
         });
     }
-
     public void buscarDados(){
         //Buscar dados do servidor
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
-                Request.Method.GET,
-                URL_BUSCAR_DADOS,
-                null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        // Dados recebidos
-                        ArrayList<String> dados = new ArrayList<>();
-                        try {
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject obj = response.getJSONObject(i);
-                                // Pegar dados
-                                String idProva = obj.getString("idProva");
-                                String Questao = obj.getString("Questao");
-                                String idRespA = obj.getString("idRespA");
-                                String textRespA = obj.getString("textRespA");
-                                String idRespB = obj.getString("idRespB");
-                                String textRespB = obj.getString("textRespB");
-                                String idRespC = obj.getString("idRespC");
-                                String textRespC = obj.getString("textRespC");
-                                String idRespD = obj.getString("idRespD");
-                                String textRespD = obj.getString("textRespD");
-                                String idRespE = obj.getString("idRespE");
-                                String textRespE = obj.getString("textRespE");
-                                String RespCorreta = obj.getString("RespCorreta");
-
-                                // Exibis dados
-                                campoIdProva.setText(idProva);
-                                campoQuestao.setText(Questao);
-                                campoIdRespA.setText(idRespA);
-                                campoTextRespA.setText(textRespA);
-                                campoIdRespB.setText(idRespB);
-                                campoTextRespB.setText(textRespB);
-                                campoIdRespC.setText(idRespC);
-                                campoTextRespC.setText(textRespC);
-                                campoIdRespD.setText(idRespD);
-                                campoTextRespD.setText(textRespD);
-                                campoIdRespE.setText(idRespE);
-                                campoTextRespE.setText(textRespE);
-                                camppoRespCorreta.setText(RespCorreta);
+            Request.Method.GET,
+            URL_BUSCAR_DADOS,
+            null,
+            new Response.Listener<JSONArray>() {
+                @Override
+                public void onResponse(JSONArray response) {
+                    // Dados recebidos
+                    ArrayList<String> dados = new ArrayList<>();
+                    try {
+                        for (int i = 0; i < response.length(); i++) {
+                            JSONObject obj = response.getJSONObject(i);
+                            // Pegar dados
+                            String idProva = obj.getString("idProva");
+                            String Questao = obj.getString("Questao");
+                            String idRespA = obj.getString("idRespA");
+                            String textRespA = obj.getString("textRespA");
+                            String idRespB = obj.getString("idRespB");
+                            String textRespB = obj.getString("textRespB");
+                            String idRespC = obj.getString("idRespC");
+                            String textRespC = obj.getString("textRespC");
+                            String idRespD = obj.getString("idRespD");
+                            String textRespD = obj.getString("textRespD");
+                            String idRespE = obj.getString("idRespE");
+                            String textRespE = obj.getString("textRespE");
+                            String RespCorreta = obj.getString("RespCorreta");
+                            // Exibis dados
+                            campoIdProva.setText(idProva);
+                            campoQuestao.setText(Questao);
+                            campoIdRespA.setText(idRespA);
+                            campoTextRespA.setText(textRespA);
+                            campoIdRespB.setText(idRespB);
+                            campoTextRespB.setText(textRespB);
+                            campoIdRespC.setText(idRespC);
+                            campoTextRespC.setText(textRespC);
+                            campoIdRespD.setText(idRespD);
+                            campoTextRespD.setText(textRespD);
+                            campoIdRespE.setText(idRespE);
+                            campoTextRespE.setText(textRespE);
+                            camppoRespCorreta.setText(RespCorreta);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(ProvaActivity.this, "Erro ao processar o JSON", Toast.LENGTH_SHORT).show();
                         }
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //Erro na requisição
-                        Log.e("Volley", "Erro ao buscar dados: " + error.getMessage());
-                        Toast.makeText(ProvaActivity.this, "Erro ao buscar dados: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+            },
+            new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    //Erro na requisição
+                    Log.e("Volley", "Erro ao buscar dados: " + error.getMessage());
+                    Toast.makeText(ProvaActivity.this, "Erro ao buscar dados: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                 }
+            }
         );
+
         // Requisição à fila
         requestQueue.add(jsonArrayRequest);
-    }
-
-    public void CadastrarPergunta(View view){
-
-        // Extratindo inorações
 
     }
+    public void btnCadastrarPergunta(View view){
+
+        // Extratindo
+
+    }
+    public void btnProxima(View view){
+        Button btnVoltar = findViewById(R.id.btnVoltar);
+        // Extratindo
+    }
+    public void ocultarObj(){
+        // Instanciando obj
+        btnVoltar = findViewById(R.id.btnVoltar);
+        btnCadastrarPergunta = findViewById(R.id.btnCadastrarPergunta);
+        btnProxima = findViewById(R.id.btnProxima);
+        btnEditarPergunta = findViewById(R.id.btnEditarPergunta);
+        btnExclirPergunta = findViewById(R.id.btnExcluirPergunta);
+
+        // Ocultando informações
+        btnVoltar.setVisibility(View.GONE);
+        btnCadastrarPergunta.setVisibility(View.GONE);
+        btnEditarPergunta.setVisibility(View.GONE);
+        btnExclirPergunta.setVisibility(View.GONE);
+        campoIdRespA.setVisibility(View.GONE);
+        campoIdRespB.setVisibility(View.GONE);
+        campoIdRespC.setVisibility(View.GONE);
+        campoIdRespD.setVisibility(View.GONE);
+        campoIdRespE.setVisibility(View.GONE);
+        camppoRespCorreta.setText(View.GONE);
+        campoIdProva.setVisibility(View.GONE);
+    }
+
 }

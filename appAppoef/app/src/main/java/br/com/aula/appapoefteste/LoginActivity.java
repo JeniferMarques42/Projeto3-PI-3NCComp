@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.viewmodel.CreationExtras;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
@@ -26,6 +27,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONArray;
+import org.w3c.dom.Text;
 
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -35,9 +37,9 @@ import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextView campoUsuario, campoSenha, mensagem;
+    private TextView campoUsuario, campoSenha, mensagem;
     private RequestQueue requestQueue;
-    String url = "https://z8vpqp-3000.csb.app/criarLogin";
+    private String url = "https://z8vpqp-3000.csb.app/criarLogin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,13 @@ public class LoginActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
+        // requisição acesso ao servidor
         requestQueue = Volley.newRequestQueue(this);
+
+        // Instanciar dados
+        campoUsuario = findViewById(R.id.textInputEditTextUsuario);
+        campoSenha = findViewById(R.id.textInputEditTextSenha);
+        mensagem = findViewById(R.id.textMensagemErro);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -53,37 +61,36 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
     }
-
-    public void Entrar(View view){
-        campoUsuario = findViewById(R.id.textInputEditTextUsuario);
-        campoSenha = findViewById(R.id.textInputEditTextSenha);
-        mensagem = findViewById(R.id.textMensagemErro);
-
+    public void Login(View view){
         // extrai dos Objetos, recuperando a String que pompões:
         String usuario = campoUsuario.getText().toString();
         String senha = campoSenha.getText().toString();
-
-        // VALIDAÇÃO ENTRADA ZERADA
+        // Validar dados
         if(TextUtils.isEmpty(usuario) || TextUtils.isEmpty(senha)){
             mensagem.setText("Os campos usuário ou senha não pode estar vazios.");
             return;
         }else {
-            fazerLogin();
+           // CriarLogin();
             Intent intent = new Intent(this, PrincipalActivity.class);
             startActivity(intent);
-            campoUsuario.setText("");
-            campoSenha.setText("");
-            mensagem.setText("");
         }
+        LimparCampos();
     }
-    
-
-    public void fazerLogin(){
-        //dados no servidor
+    public void NaoTenhoConta(View view) {
+        // extrai dos Objetos, recuperando a String que pompões:
+        String usuario = campoUsuario.getText().toString();
+        String senha = campoSenha.getText().toString();
+        // Mudar para Tela Cadastro
+        Intent intencao = new Intent(LoginActivity.this, CadastroActivity.class);
+        startActivity(intencao);
+        LimparCampos();
+    }
+    public void CriarLogin(){
         // extrai dos Objetos, recuperando a String que pompões:
         String usuario = campoUsuario.getText().toString();
         String senha = campoSenha.getText().toString();
 
+        // criando Json para enviar dados
         JSONObject obj = new JSONObject();
         try{
             obj.put("usuario", usuario);
@@ -94,39 +101,27 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Erro ao criar O JSON " , Toast.LENGTH_SHORT).show();
             return;
         }
-       JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, obj, response -> {
-           Toast.makeText(LoginActivity.this, "Login cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, obj, response -> {
+            Toast.makeText(LoginActivity.this, "Login cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
 
-       },
-       error -> {
-           if(error.networkResponse != null){
-               Log.e("Volley", "Erro na requisição: " + new String(error.networkResponse.data));
-           }
-               }
-       );
-               // adicionar requisição a fila
-               requestQueue.add(jsonObjectRequest);
+        },
+                error -> {
+                    if(error.networkResponse != null){
+                        Log.e("Volley", "Erro na requisição: " + new String(error.networkResponse.data));
+                    }
+                }
+        );
+        // adicionar requisição a fila
+        requestQueue.add(jsonObjectRequest);
 
 
     }
-
-    public void NaoTenhConta(View view) {
-        TextInputEditText campoUsuario = findViewById(R.id.textInputEditTextUsuario);
-        TextInputEditText campoSenha = findViewById(R.id.textInputEditTextSenha);
-        TextView mensagem = findViewById(R.id.textMensagemErro);
-
-        String usuario = campoUsuario.getText().toString();
-        String senha = campoSenha.getText().toString();
-
-        Intent intencao = new Intent(LoginActivity.this, CadastroActivity.class);
-        startActivity(intencao);
-
-        // Você pode querer mover a limpeza dos campos e a mensagem de erro
-        // para algum lugar que faça mais sentido.
+    public void LimparCampos(){
         campoUsuario.setText("");
         campoSenha.setText("");
         mensagem.setText("");
-    } };
-
-
-
+    }
+    public interface ILoginActivity{
+        void CriarLogin();
+    }
+}

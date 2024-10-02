@@ -14,7 +14,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-public class CadastroActivity extends AppCompatActivity {
+public class CadastroActivity extends AppCompatActivity implements LoginActivity.ILoginActivity {
+
+    private TextInputEditText campoUsuario, campoSenha, campoConfirmarSenha;
+    private TextView mensagem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,61 +31,59 @@ public class CadastroActivity extends AppCompatActivity {
         });
     }
 
-    public void Entrar(View view) {
-        // Instânciamento dos elementos Views do meu Arquivo XML;
-        TextInputEditText campoUsuario = findViewById(R.id.textInputEditTextUsuario);
-        TextInputEditText campoSenha = findViewById(R.id.textInputEditTextSenha);
-        TextInputEditText campoConfirmarSenha = findViewById(R.id.textInputEditTextConfirmarSenha);
-
-        TextView mensagem = findViewById(R.id.textMensagemErro);
-
+    public void CriarConta(View view) {
+        instDados();
         // extrai dos Objetos, recuperando a String que pompões:
         String usuario = campoUsuario.getText().toString();
         String senha = campoSenha.getText().toString();
-        String confirmarsenha = campoConfirmarSenha.getText().toString();
-
+        String confirmarSenha = campoConfirmarSenha.getText().toString();
         // VALIDAÇÃO ENTRADA ZERADA
-        if (TextUtils.isEmpty(usuario) || TextUtils.isEmpty(senha) || TextUtils.isEmpty(confirmarsenha)) {
+        if(TextUtils.isEmpty(usuario) || TextUtils.isEmpty(senha)){
             mensagem.setText("Os campos usuário ou senha não pode estar vazios.");
             return;
-        }
-        if (senha.equals(confirmarsenha)) {
+        }else if (senha.equals(confirmarSenha)) {
+          //  CriarLogin();
             Intent intent = new Intent(this, PrincipalActivity.class);
             startActivity(intent);
+            LimparCampos();
         } else {
             mensagem.setText("As senhas se diferem, tente novamente.");
         }
+
     }
-
     public void Associar(View view){
-        // Instânciamento dos elementos Views do meu Arquivo XML;
-        TextInputEditText campoUsuario = findViewById(R.id.textInputEditTextUsuario);
-        TextInputEditText campoSenha = findViewById(R.id.textInputEditTextSenha);
-        TextInputEditText campoConfirmarSenha = findViewById(R.id.textInputEditTextConfirmarSenha);
-
-        TextView mensagem = findViewById(R.id.textMensagemErro);
-
+        instDados();
         // extrai dos Objetos, recuperando a String que pompões:
         String usuario = campoUsuario.getText().toString();
         String senha = campoSenha.getText().toString();
-        String confirmarsenha = campoConfirmarSenha.getText().toString();
-
-        // Validação entrada zerada
-        if(TextUtils.isEmpty(usuario) || TextUtils.isEmpty(senha) || TextUtils.isEmpty(confirmarsenha)){
+        String confirmarSenha = campoConfirmarSenha.getText().toString();
+        // VALIDAÇÃO ENTRADA ZERADA
+        if(TextUtils.isEmpty(usuario) || TextUtils.isEmpty(senha)){
             mensagem.setText("Os campos usuário ou senha não pode estar vazios.");
             return;
-        }
-        // Validação cadastro senha
-        if(senha.equals(confirmarsenha)){
+        }else if (senha.equals(confirmarSenha)) {
+            //CriarLogin();
             Intent intent = new Intent(this, InformacoesActivity.class);
             startActivity(intent);
-            campoUsuario.setText("");
-            campoSenha.setText("");
-            campoConfirmarSenha.setText("");
-            mensagem.setText("");
-        }
-        else{
+            LimparCampos();
+       } else {
             mensagem.setText("As senhas se diferem, tente novamente.");
         }
     }
+    public void instDados(){
+        // Instânciamento dos elementos Views do meu Arquivo XML;
+        campoUsuario = findViewById(R.id.textInputEditTextUsuario);
+        campoSenha = findViewById(R.id.textInputEditTextSenha);
+        campoConfirmarSenha = findViewById(R.id.textInputEditTextConfirmarSenha);
+        mensagem = findViewById(R.id.textMensagemErro);
+    }
+    public void LimparCampos() {
+        campoUsuario.setText("");
+        campoSenha.setText("");
+        mensagem.setText("");
+        campoConfirmarSenha.setText("");
+    }
+    @Override
+    public void CriarLogin() {}
+
 }
