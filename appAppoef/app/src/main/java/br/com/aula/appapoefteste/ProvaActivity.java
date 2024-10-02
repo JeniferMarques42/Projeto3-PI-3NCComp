@@ -62,8 +62,6 @@ public class ProvaActivity extends AppCompatActivity {
 
         //chamar método
         buscarDados();
-        //ocultarObj();
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -72,6 +70,7 @@ public class ProvaActivity extends AppCompatActivity {
         });
     }
     public void buscarDados(){
+        //ocultarObj();
         //Buscar dados do servidor
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
             Request.Method.GET,
@@ -136,12 +135,12 @@ public class ProvaActivity extends AppCompatActivity {
     }
     public void btnCadastrarPergunta(View view){
 
-        // Extratindo
+        //
 
     }
     public void btnProxima(View view){
         Button btnVoltar = findViewById(R.id.btnVoltar);
-        // Extratindo
+        //
     }
     public void ocultarObj(){
         // Instanciando obj

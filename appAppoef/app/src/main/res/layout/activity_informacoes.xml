@@ -28,7 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="INFORMAÇÕES SOBRE SER UM ASSOCIADO"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textInformacoes"
@@ -81,21 +82,34 @@
         a qualquer momento que o solicite diretamente na sede da associação receberá
         o documento.
 
-" />
+"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnRealizarProva"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="RealizarProva"
-                android:text="Realizar Prova" />
+                android:text="Realizar Prova"
+                android:backgroundTint="@color/azul_escuro"
+                android:textColor="@color/bege"
+                android:textSize="25dp"/>
 
             <Button
                 android:id="@+id/btnInfEntrar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="Entrar"
-                android:text="Entrar" />
+                android:text="Entrar"
+                android:backgroundTint="@color/azul_escuro"
+                android:textColor="@color/bege"
+                android:textSize="25dp"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="" />
 
         </LinearLayout>
     </ScrollView>

@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             mensagem.setText("Os campos usuário ou senha não pode estar vazios.");
             return;
         }else {
-           // CriarLogin();
+            CriarLogin();
             Intent intent = new Intent(this, PrincipalActivity.class);
             startActivity(intent);
         }

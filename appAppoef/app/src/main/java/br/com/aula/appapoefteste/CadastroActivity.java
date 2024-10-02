@@ -42,7 +42,7 @@ public class CadastroActivity extends AppCompatActivity implements LoginActivity
             mensagem.setText("Os campos usuário ou senha não pode estar vazios.");
             return;
         }else if (senha.equals(confirmarSenha)) {
-          //  CriarLogin();
+            CriarLogin();
             Intent intent = new Intent(this, PrincipalActivity.class);
             startActivity(intent);
             LimparCampos();
@@ -62,7 +62,7 @@ public class CadastroActivity extends AppCompatActivity implements LoginActivity
             mensagem.setText("Os campos usuário ou senha não pode estar vazios.");
             return;
         }else if (senha.equals(confirmarSenha)) {
-            //CriarLogin();
+            CriarLogin();
             Intent intent = new Intent(this, InformacoesActivity.class);
             startActivity(intent);
             LimparCampos();
