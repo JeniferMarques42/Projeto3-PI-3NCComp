@@ -27,15 +27,15 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="INFORMAÇÕES SOBRE SER UM ASSOCIADO"
+                android:text="\nINFORMAÇÕES SOBRE SER UM ASSOCIADO"
                 android:textAlignment="center"
-                android:textSize="25sp" />
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/textInformacoes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1 – Os interessados em se associar deverão realizar prova de múltipla escolha para a avaliação de conhecimentos.
+                android:text="\n1 – Os interessados em se associar deverão realizar prova de múltipla escolha para a avaliação de conhecimentos.
         \n\t40 (quarenta) questões de múltipla escolha
         \n\t50 (cinquenta) minutos de duração
         \nO candidato deverá ter aproveitamento mínimo de 80% de acertos na prova, o que
@@ -83,30 +83,30 @@
         o documento.
 
 "
-                android:textSize="20sp" />
+                android:textSize="16dp" />
 
             <Button
                 android:id="@+id/btnRealizarProva"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="RealizarProva"
-                android:text="Realizar Prova"
                 android:backgroundTint="@color/azul_escuro"
                 android:textColor="@color/bege"
-                android:textSize="25dp"/>
+                android:textSize="20dp"
+                android:text="Realizar Prova" />
 
             <Button
                 android:id="@+id/btnInfEntrar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="Entrar"
-                android:text="Entrar"
                 android:backgroundTint="@color/azul_escuro"
                 android:textColor="@color/bege"
-                android:textSize="25dp"/>
+                android:textSize="20dp"
+                android:text="Entrar" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />

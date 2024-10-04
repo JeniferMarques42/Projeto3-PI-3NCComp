@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrientacaoActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome da Prova:
+Data e Hora:
+Duração:
+Plataforma:
+Instruções de Acesso:
+Link da prova
+Senha ou código de acesso, se necessário
+Ambiente de Prova
+Local:
+Escolher um lugar silencioso e sem distrações
+Equipamentos:
+Computador ou tablet com acesso à internet
+Webcam e microfone (se necessário)
+Carregador ou bateria suficiente
+4. Preparação
+Revisão:
+Revise os tópicos principais que serão abordados
+Simulados:
+Realize simulados para praticar
+Exercícios:
+Faça exercícios sobre os temas relevantes
+5. Dicas Práticas
+Leitura Atenta:
+Leia todas as instruções antes de começar
+Gerenciamento do Tempo:
+Controle o tempo disponível para cada questão
+Manutenção da Calma:
+Faça pausas breves se necessário para manter a concentração
+Sejam muito bem-vindos à nossa prova online! Estamos felizes por vocês estarem aqui e prontos para mostrar todo o conhecimento adquirido. Antes de começarmos, gostaria de compartilhar algumas orientações para que tudo ocorra da melhor forma possível:
+
+Acesso à Prova:
+
+O link para a prova está disponível na plataforma [inserir link ou localização].
+Certifiquem-se de que têm a senha/código de acesso prontos.
+Preparação:
+
+Verifiquem se todos os equipamentos (computador, webcam, microfone) estão funcionando corretamente.
+Encontrem um local tranquilo, onde possam se concentrar sem distrações.
+Duração e Estrutura:
+
+A prova terá a duração de [inserir tempo] e conterá [número de questões] questões.
+Leiam atentamente todas as instruções antes de começar.
+Durante a Prova:
+
+Gerenciem o tempo, distribuindo-o entre as questões.
+Caso tenham alguma dúvida técnica, tentem resolver primeiro, mas se precisarem, não hesitem em nos contactar.
+Após a Prova:
+
+Lembrem-se de revisar suas respostas antes de enviar.
+Vocês receberão feedback sobre o desempenho em breve.
+Estamos aqui para apoiar vocês, e acreditamos que todos darão o melhor de si. Boa sorte a todos!
+
+Vamos começar!
+
+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="IniciarProva"
+        android:text="Iniciar Prova"
+        android:backgroundTint="@color/azul_escuro"
+        android:textColor="@color/bege"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.945" />
+</androidx.constraintlayout.widget.ConstraintLayout>
