@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.PixelCopy;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,8 +35,11 @@ public class ProvaActivity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
     private final String URL_BUSCAR_DADOS = "https://z8vpqp-3000.csb.app/perguntasCadastradas";
-    TextView campoIdProva,campoQuestao, campoIdRespA, campoIdRespB, campoIdRespC, campoIdRespD, campoIdRespE, camppoRespCorreta;
-    RadioButton campoTextRespA, campoTextRespB, campoTextRespC, campoTextRespD, campoTextRespE;
+    private TextView campoIdProva,campoQuestao, campoIdRespA, campoIdRespB, campoIdRespC, campoIdRespD, campoIdRespE, camppoRespCorreta;
+    private TextView texTime, textNumTime;
+    private RadioButton campoTextRespA, campoTextRespB, campoTextRespC, campoTextRespD, campoTextRespE;
+    private Button btnProximo, btnVoltar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +66,18 @@ public class ProvaActivity extends AppCompatActivity {
         campoTextRespE = findViewById(R.id.radioTextRespE);
         camppoRespCorreta = findViewById(R.id.RespCorreta);
 
+        texTime = findViewById(R.id.texTime);
+        textNumTime = findViewById(R.id.textNumTime);
+
+        btnVoltar = findViewById(R.id.btnVoltar);
+        btnProximo = findViewById(R.id.btnProxima);
+
+        btnProximo.setOnClickListener(view -> {
+            btnVoltar.setVisibility(View.VISIBLE);
+        });
+
         //chamar método
         buscarDados();
-
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -134,6 +146,10 @@ public class ProvaActivity extends AppCompatActivity {
         );
         // Requisição à fila
         requestQueue.add(jsonArrayRequest);
+    }
+    public void tempoProva(){
+        //getTime() / (double) (1000 * 60 * 60));
+        //
     }
 
 

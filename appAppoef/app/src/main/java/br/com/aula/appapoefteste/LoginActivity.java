@@ -3,9 +3,9 @@ package br.com.aula.appapoefteste;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.content.Intent;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,26 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.lifecycle.viewmodel.CreationExtras;
 
 import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.Response;
 import com.android.volley.Request;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONArray;
-import org.w3c.dom.Text;
-
-
-import com.google.android.material.textfield.TextInputEditText;
-
-import java.util.ArrayList;
-
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -69,13 +57,22 @@ public class LoginActivity extends AppCompatActivity {
         if(TextUtils.isEmpty(usuario) || TextUtils.isEmpty(senha)){
             mensagem.setText("Os campos usuário ou senha não pode estar vazios.");
             return;
-        }else {
-            CriarLogin();
-            Intent intent = new Intent(this, PrincipalActivity.class);
-            startActivity(intent);
         }
-        LimparCampos();
+        if(!isValidEmail(usuario)) {
+            Toast.makeText(this, "Erro! Email invalido " , Toast.LENGTH_SHORT).show();
+            LimparCampos();
+            return;
+        }
+        if(senha.length()<6){
+            Toast.makeText(this, "A senha nao pode ser menor que 6", Toast.LENGTH_SHORT).show();
+        }
+        CriarLogin();
+        Intent intent = new Intent(this, PrincipalActivity.class);
+        startActivity(intent);
     }
+    private boolean isValidEmail(String usuario) {
+        return usuario != null && Patterns.EMAIL_ADDRESS.matcher(usuario).matches();
+    };
     public void NaoTenhoConta(View view) {
         // extrai dos Objetos, recuperando a String que pompões:
         String usuario = campoUsuario.getText().toString();
@@ -113,8 +110,6 @@ public class LoginActivity extends AppCompatActivity {
         );
         // adicionar requisição a fila
         requestQueue.add(jsonObjectRequest);
-
-
     }
     public void LimparCampos(){
         campoUsuario.setText("");

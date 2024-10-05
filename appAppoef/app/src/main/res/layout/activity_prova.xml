@@ -115,8 +115,10 @@
     <TextView
         android:id="@+id/textQuestao"
         android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:text="Sobre a Análise Envoltória de Dados, de acordo com o texto “Instituto Acende Brasil. Tarifas de Energia e os Benefícios da Regulação por Incentivos. White Paper 3, São Paulo, 2011”, é correto afirmar que:"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text=""
         android:textAlignment="center"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -141,8 +143,11 @@
 
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -151,37 +156,37 @@
         <RadioButton
             android:id="@+id/radioTextRespA"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
-            android:textSize="16dp" />
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14dp" />
 
         <RadioButton
             android:id="@+id/radioTextRespB"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
-            android:textSize="16dp" />
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14dp" />
 
         <RadioButton
             android:id="@+id/radioTextRespC"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
-            android:textSize="16dp" />
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14dp" />
 
         <RadioButton
             android:id="@+id/radioTextRespD"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
-            android:textSize="16dp" />
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14dp" />
 
         <RadioButton
             android:id="@+id/radioTextRespE"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
-            android:textSize="16dp" />
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14dp" />
     </RadioGroup>
 
     <Button
@@ -193,7 +198,7 @@
         android:textColor="@color/bege"
         android:textSize="20dp"
 
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.218"
@@ -206,7 +211,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/azul_escuro"
-        android:onClick="Proxima"
         android:text="Próxima"
         android:textColor="@color/bege"
         android:textSize="20dp"
@@ -216,60 +220,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.916" />
-
-    <Button
-        android:id="@+id/btnCriarPergunta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/azul_turquesa"
-        android:onClick="CadastrarPergunta"
-        android:text="Cadastrar"
-        android:textColor="@color/bege"
-        android:textSize="16dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986" />
-
-    <Button
-        android:id="@+id/btnEditarPergunta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/azul_turquesa"
-        android:text="Editar"
-        android:textColor="@color/bege"
-        android:textSize="16dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986" />
-
-    <Button
-        android:id="@+id/btnExcluirPergunta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/azul_turquesa"
-        android:text="Excluir"
-        android:textColor="@color/bege"
-        android:textSize="16dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.991" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
