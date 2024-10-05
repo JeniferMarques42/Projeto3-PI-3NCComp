@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public class ProvaActivity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
-    private static final String URL_BUSCAR_DADOS = "https://z8vpqp-3000.csb.app/perguntasCadastradas";
+    private final String URL_BUSCAR_DADOS = "https://z8vpqp-3000.csb.app/perguntasCadastradas";
     TextView campoIdProva,campoQuestao, campoIdRespA, campoIdRespB, campoIdRespC, campoIdRespD, campoIdRespE, camppoRespCorreta;
     RadioButton campoTextRespA, campoTextRespB, campoTextRespC, campoTextRespD, campoTextRespE;
 
@@ -65,13 +65,14 @@ public class ProvaActivity extends AppCompatActivity {
         //chamar método
         buscarDados();
 
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
     }
-
     public void buscarDados(){
         //Buscar dados do servidor
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
@@ -135,11 +136,8 @@ public class ProvaActivity extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
     }
 
-    public void CadastrarPergunta(View view){
 
-        // Extratindo inorações
 
-    }
 
 
 

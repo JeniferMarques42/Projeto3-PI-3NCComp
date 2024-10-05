@@ -115,7 +115,7 @@
     <TextView
         android:id="@+id/textQuestao"
         android:layout_width="wrap_content"
-        android:layout_height="120dp"
+        android:layout_height="90dp"
         android:text="Sobre a Análise Envoltória de Dados, de acordo com o texto “Instituto Acende Brasil. Tarifas de Energia e os Benefícios da Regulação por Incentivos. White Paper 3, São Paulo, 2011”, é correto afirmar que:"
         android:textAlignment="center"
         android:textSize="17sp"
@@ -140,70 +140,49 @@
         app:layout_constraintVertical_bias="0.040" />
 
 
-    <RadioButton
-        android:id="@+id/radioTextRespC"
+    <RadioGroup
         android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
-        android:textSize="16dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.538" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <RadioButton
-        android:id="@+id/radioTextRespA"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257" />
+        <RadioButton
+            android:id="@+id/radioTextRespA"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
+            android:textSize="16dp" />
 
-    <RadioButton
-        android:id="@+id/radioTextRespB"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397" />
+        <RadioButton
+            android:id="@+id/radioTextRespB"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
+            android:textSize="16dp" />
 
-    <RadioButton
-        android:id="@+id/radioTextRespE"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.819" />
+        <RadioButton
+            android:id="@+id/radioTextRespC"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
+            android:textSize="16dp" />
 
-    <RadioButton
-        android:id="@+id/radioTextRespD"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.678" />
+        <RadioButton
+            android:id="@+id/radioTextRespD"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
+            android:textSize="16dp" />
+
+        <RadioButton
+            android:id="@+id/radioTextRespE"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:text="é uma metodologia não paramétrica para avaliar a eficiência de diversos agentes econômicos com base nas suas combinações de insumos e produtos."
+            android:textSize="16dp" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/btnVoltar"
