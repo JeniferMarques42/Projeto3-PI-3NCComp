@@ -3,6 +3,7 @@ package br.com.aula.appapoefteste;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
@@ -69,13 +70,22 @@ public class LoginActivity extends AppCompatActivity {
         if(TextUtils.isEmpty(usuario) || TextUtils.isEmpty(senha)){
             mensagem.setText("Os campos usuário ou senha não pode estar vazios.");
             return;
-        }else {
-            CriarLogin();
-            Intent intent = new Intent(this, PrincipalActivity.class);
-            startActivity(intent);
+        }if(!isValidEmail(usuario)) {
+            Toast.makeText(this, "Erro! Email invalido " , Toast.LENGTH_SHORT).show();
+            LimparCampos();
+            return;
         }
-        LimparCampos();
+        if(senha.length()<6){
+            Toast.makeText(this, "A senha nao pode ser menor que 6", Toast.LENGTH_SHORT).show();
+            return;
+
+        }
     }
+
+    private boolean isValidEmail(String usuario) {
+        return usuario != null && Patterns.EMAIL_ADDRESS.matcher(usuario).matches();
+    };
+
     public void NaoTenhoConta(View view) {
         // extrai dos Objetos, recuperando a String que pompões:
         String usuario = campoUsuario.getText().toString();
