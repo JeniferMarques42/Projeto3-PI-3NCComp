@@ -25,10 +25,11 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private TextView campoUsuario, campoSenha, mensagem;
+    private TextView campoUsuario, campoSenha, mensagem, validQtdCarac, validCaracEspecial, validLetraMaius,
+            validLetraMinusc, validNum;
     private RequestQueue requestQueue;
     private String url = "https://z8vpqp-3000.csb.app/criarLogin";
-
+    private String emojierro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,12 @@ public class LoginActivity extends AppCompatActivity {
         campoUsuario = findViewById(R.id.textInputEditTextUsuario);
         campoSenha = findViewById(R.id.textInputEditTextSenha);
         mensagem = findViewById(R.id.textMensagemErro);
+        validQtdCarac = findViewById(R.id.textValidQtdCarac);
+        validCaracEspecial = findViewById(R.id.textValidCaracEspecial);
+        validLetraMaius = findViewById(R.id.textValidLetraMaius);
+        validLetraMinusc = findViewById(R.id.textValidLetraMinusc);
+        validNum = findViewById(R.id.textValidNum);
+        emojierro = getString(R.string.emojierror);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -53,23 +60,51 @@ public class LoginActivity extends AppCompatActivity {
         // extrai dos Objetos, recuperando a String que pompões:
         String usuario = campoUsuario.getText().toString();
         String senha = campoSenha.getText().toString();
-        // Validar dados
+        // Validação de senha e usuario conforme padrao
         if(TextUtils.isEmpty(usuario) || TextUtils.isEmpty(senha)){
-            mensagem.setText("Os campos usuário ou senha não pode estar vazios.");
+            mensagem.setText("Os campos de usuário e senha não podem estar vazios.");
             return;
         }
         if(!isValidEmail(usuario)) {
-            Toast.makeText(this, "Erro! Email invalido " , Toast.LENGTH_SHORT).show();
+            mensagem.setText("E-mail fornecido é inválido.");
+            return;
+        }
+        if(senha.length() < 6  ){
+
+            validQtdCarac.setText(emojierro + " É necessário que a senha contenha 6 dígitos.");
             LimparCampos();
             return;
         }
-        if(senha.length()<6){
-            Toast.makeText(this, "A senha nao pode ser menor que 6", Toast.LENGTH_SHORT).show();
+        if(!senha.matches(".*[!@#&*$/;~^+_-].*")){
+            validCaracEspecial.setText(emojierro + " É necessário que a senha contenha um caractere especial.");
+            LimparCampos();
+            return;
+        }
+        if(!senha.matches(".*[A-Z].*")){
+          validLetraMaius.setText(emojierro +" É necessário que a senha contenha uma letra maiúscula.");
+            LimparCampos();
+            return;
+        }
+        if(!senha.matches(".*[a-z].*")){
+            validLetraMinusc.setText(emojierro + " É necessário que a senha contenha uma letra minúscula.");
+            return;
+        }
+        if(!senha.matches(".*[0-9].*")){
+           validNum.setText(emojierro +" É necessário que a senha contenha um número.");
+            return;
         }
         CriarLogin();
         Intent intent = new Intent(this, PrincipalActivity.class);
         startActivity(intent);
+        LimparCampos();
     }
+
+    // criaçaõ de elementos no layout para acompnhar em tempo real a verificação do usuario e senha
+
+
+
+
+
     private boolean isValidEmail(String usuario) {
         return usuario != null && Patterns.EMAIL_ADDRESS.matcher(usuario).matches();
     };
@@ -112,7 +147,6 @@ public class LoginActivity extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
     public void LimparCampos(){
-        campoUsuario.setText("");
         campoSenha.setText("");
         mensagem.setText("");
     }
