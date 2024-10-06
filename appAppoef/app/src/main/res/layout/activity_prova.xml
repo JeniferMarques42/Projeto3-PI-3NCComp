@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="A"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.104"
@@ -65,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="B"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.153"
@@ -78,36 +78,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="C"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.211"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008" />
-
-    <TextView
-        android:id="@+id/textRespD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="D"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.26"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008" />
-
-    <TextView
-        android:id="@+id/textRespE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="E"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.008" />
@@ -174,19 +148,6 @@
             android:text=""
             android:textSize="14dp" />
 
-        <RadioButton
-            android:id="@+id/radioTextRespD"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="14dp" />
-
-        <RadioButton
-            android:id="@+id/radioTextRespE"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="14dp" />
     </RadioGroup>
 
     <Button

@@ -34,12 +34,11 @@ import java.util.ArrayList;
 public class ProvaActivity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
-    private final String URL_BUSCAR_DADOS = "https://z8vpqp-3000.csb.app/perguntasCadastradas";
-    private TextView campoIdProva,campoQuestao, campoIdRespA, campoIdRespB, campoIdRespC, campoIdRespD, campoIdRespE, camppoRespCorreta;
+    private final String URL_BUSCAR_DADOS = "https://xm4tg7-3000.csb.app/randomPerguntas";
+    private TextView campoIdProva,campoQuestao, campoIdRespA, campoIdRespB, campoIdRespC, campoRespCorreta;
     private TextView texTime, textNumTime;
-    private RadioButton campoTextRespA, campoTextRespB, campoTextRespC, campoTextRespD, campoTextRespE;
+    private RadioButton campoTextRespA, campoTextRespB, campoTextRespC;
     private Button btnProximo, btnVoltar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +49,6 @@ public class ProvaActivity extends AppCompatActivity {
         // Requisição de rede
         requestQueue = Volley.newRequestQueue(this);
 
-
         // Instanciando objetos
         campoIdProva = findViewById(R.id.textIdProva);
         campoQuestao = findViewById(R.id.textQuestao);
@@ -60,11 +58,7 @@ public class ProvaActivity extends AppCompatActivity {
         campoTextRespB = findViewById(R.id.radioTextRespB);
         campoIdRespC = findViewById(R.id.textRespC);
         campoTextRespC = findViewById(R.id.radioTextRespC);
-        campoIdRespD = findViewById(R.id.textRespD);
-        campoTextRespD = findViewById(R.id.radioTextRespD);
-        campoIdRespE = findViewById(R.id.textRespE);
-        campoTextRespE = findViewById(R.id.radioTextRespE);
-        camppoRespCorreta = findViewById(R.id.RespCorreta);
+        campoRespCorreta = findViewById(R.id.RespCorreta);
 
         texTime = findViewById(R.id.texTime);
         textNumTime = findViewById(R.id.textNumTime);
@@ -73,7 +67,11 @@ public class ProvaActivity extends AppCompatActivity {
         btnProximo = findViewById(R.id.btnProxima);
 
         btnProximo.setOnClickListener(view -> {
+            buscarDados();
             btnVoltar.setVisibility(View.VISIBLE);
+        });
+        btnVoltar.setOnClickListener(view -> {
+
         });
 
         //chamar método
@@ -108,10 +106,6 @@ public class ProvaActivity extends AppCompatActivity {
                                 String textRespB = obj.getString("textRespB");
                                 String idRespC = obj.getString("idRespC");
                                 String textRespC = obj.getString("textRespC");
-                                String idRespD = obj.getString("idRespD");
-                                String textRespD = obj.getString("textRespD");
-                                String idRespE = obj.getString("idRespE");
-                                String textRespE = obj.getString("textRespE");
                                 String RespCorreta = obj.getString("RespCorreta");
 
                                 // Exibis dados
@@ -123,11 +117,25 @@ public class ProvaActivity extends AppCompatActivity {
                                 campoTextRespB.setText(textRespB);
                                 campoIdRespC.setText(idRespC);
                                 campoTextRespC.setText(textRespC);
-                                campoIdRespD.setText(idRespD);
-                                campoTextRespD.setText(textRespD);
-                                campoIdRespE.setText(idRespE);
-                                campoTextRespE.setText(textRespE);
-                                camppoRespCorreta.setText(RespCorreta);
+                                campoRespCorreta.setText(RespCorreta);
+
+                                // Comparar ids
+                                if(campoRespCorreta.equals(campoTextRespA)){
+                                    /*campoIdRespA.setText(RespCorreta);
+                                    campoIdRespB.setText("");
+                                    campoIdRespC.setText("");*/
+                                    campoIdRespA.setVisibility(View.VISIBLE);
+                                }if(campoRespCorreta.equals(campoIdRespB)){
+                                    /*campoIdRespB.setText(RespCorreta);
+                                    campoIdRespA.setText("");
+                                    campoIdRespC.setText("");*/
+                                    campoIdRespB.setVisibility(View.VISIBLE);
+                                }if(campoRespCorreta.equals(campoIdRespC)){
+                                    /*campoIdRespC.setText(RespCorreta);
+                                    campoIdRespB.setText("");
+                                    campoIdRespA.setText("");*/
+                                    campoIdRespC.setVisibility(View.VISIBLE);
+                                }
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -151,14 +159,5 @@ public class ProvaActivity extends AppCompatActivity {
         //getTime() / (double) (1000 * 60 * 60));
         //
     }
-
-
-
-
-
-
-
-
-
 
 }

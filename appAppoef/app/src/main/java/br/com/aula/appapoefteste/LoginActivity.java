@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView campoUsuario, campoSenha, mensagem, validQtdCarac, validCaracEspecial, validLetraMaius,
             validLetraMinusc, validNum;
     private RequestQueue requestQueue;
-    private String url = "https://z8vpqp-3000.csb.app/criarLogin";
+    private String url = "https://xm4tg7-3000.csb.app/criarLogin";
     private String emojierro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,13 +98,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         LimparCampos();
     }
-
     // criaçaõ de elementos no layout para acompnhar em tempo real a verificação do usuario e senha
-
-
-
-
-
     private boolean isValidEmail(String usuario) {
         return usuario != null && Patterns.EMAIL_ADDRESS.matcher(usuario).matches();
     };
