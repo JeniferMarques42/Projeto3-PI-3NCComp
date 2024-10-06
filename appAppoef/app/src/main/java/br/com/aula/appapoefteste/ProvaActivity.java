@@ -120,22 +120,27 @@ public class ProvaActivity extends AppCompatActivity {
                                 campoRespCorreta.setText(RespCorreta);
 
                                 // Comparar ids
-                                if(campoRespCorreta.equals(campoTextRespA)){
-                                    /*campoIdRespA.setText(RespCorreta);
-                                    campoIdRespB.setText("");
-                                    campoIdRespC.setText("");*/
-                                    campoIdRespA.setVisibility(View.VISIBLE);
-                                }if(campoRespCorreta.equals(campoIdRespB)){
-                                    /*campoIdRespB.setText(RespCorreta);
-                                    campoIdRespA.setText("");
-                                    campoIdRespC.setText("");*/
-                                    campoIdRespB.setVisibility(View.VISIBLE);
-                                }if(campoRespCorreta.equals(campoIdRespC)){
-                                    /*campoIdRespC.setText(RespCorreta);
-                                    campoIdRespB.setText("");
-                                    campoIdRespA.setText("");*/
-                                    campoIdRespC.setVisibility(View.VISIBLE);
-                                }
+                                campoTextRespA.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                                    if(isChecked && RespCorreta.equals(idRespA)){
+                                        campoIdRespA.setVisibility(View.VISIBLE);
+                                    } else{
+                                        campoIdRespA.setVisibility(View.INVISIBLE);
+                                    }
+                                });
+                                campoTextRespB.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                                    if(isChecked && RespCorreta.equals(idRespB)){
+                                        campoIdRespB.setVisibility(View.VISIBLE);
+                                    } else{
+                                        campoIdRespB.setVisibility(View.INVISIBLE);
+                                    }
+                                });
+                                campoTextRespC.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                                    if(isChecked && RespCorreta.equals(idRespC)){
+                                        campoIdRespC.setVisibility(View.VISIBLE);
+                                    } else{
+                                        campoIdRespC.setVisibility(View.INVISIBLE);
+                                    }
+                                });
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
